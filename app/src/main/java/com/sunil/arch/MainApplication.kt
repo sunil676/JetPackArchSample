@@ -15,6 +15,6 @@ open class MainApplication : Application(){
         startKoin(this, provideComponent())
     }
 
-    // PUBLIC API ---
+    // all module
     open fun provideComponent() = appComponent
 }

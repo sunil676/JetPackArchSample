@@ -1,5 +1,6 @@
 package com.sunil.arch.injection
 
-import com.sunil.arch.utility.AppConstant
+import com.sunil.arch.BuildConfig
 
-val appComponent= listOf(createRemoteModule(AppConstant.BASEURL), repositoryModule, featureHomeModule, featureDetailModule)
+val appComponent =
+    listOf(createRemoteModule(BuildConfig.URL_API), repositoryModule, featureMainModule, featureDetailModule)

@@ -11,7 +11,7 @@
         <!-- Go to Detail Fragment (Its graph is responsible to handle response) -->
         <action android:id="@+id/action_mainFragment_to_detailFragment"
                 app:destination="@id/nav_graph_detail_feature">
-            <argument android:name="login" app:argType="string"/>
+            <argument android:name="movie" app:argType="com.sunil.arch.data.MovieEntity"/>
         </action>
 
     </fragment>

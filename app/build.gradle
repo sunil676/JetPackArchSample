@@ -4,6 +4,9 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+//Apply Safe Args Plugin
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -17,10 +20,30 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            versionNameSuffix " prod"
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'API_KEY', '"c9a058c168b2ee5563bada0f30c7b0e8"'
+            buildConfigField 'String', 'URL_API', '"https://api.themoviedb.org/3/"'
+        }
+        debug {
+            versionNameSuffix " Debug"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'API_KEY', '"c9a058c168b2ee5563bada0f30c7b0e8"'
+            buildConfigField 'String', 'URL_API', '"https://api.themoviedb.org/3/"'
         }
     }
+    dataBinding {
+        enabled true
+    }
 
+    lintOptions{
+        disable 'MissingDefaultResource'
+    }
+
+    testOptions {
+        animationsDisabled = true
+    }
 }
 
 dependencies {
@@ -52,7 +75,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
 
     // data binding
-    implementation "androidx.databinding:databinding-compiler:3.4.0"
+    //testImplementation "androidx.databinding:databinding-compiler:3.5.0-beta01"
 
     // retrofit
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
@@ -61,6 +84,8 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.4.0"
     implementation "com.squareup.okhttp3:logging-interceptor:3.12.1"
 
-    // GLIDE
+    // glide
     implementation "com.github.bumptech.glide:glide:4.9.0"
+
+
 }
