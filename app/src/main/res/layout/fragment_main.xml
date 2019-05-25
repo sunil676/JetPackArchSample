@@ -54,9 +54,11 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/fragment_home_rv"
+                        app:items="@{viewmodel.movie}"
+                        app:spanCount="2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

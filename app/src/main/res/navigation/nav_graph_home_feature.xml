@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/nav_graph_home_feature">
+            android:id="@+id/nav_graph_home_feature"
+            app:startDestination="@id/mainFragment">
 
     <!-- Main fragment -->
-    <fragment android:id="@+id/homeFragment"
+    <fragment android:id="@+id/mainFragment"
               android:name="com.sunil.arch.ui.main.MainFragment"
               android:label="@string/app_name">
 
@@ -13,7 +14,6 @@
                 app:destination="@id/nav_graph_detail_feature">
             <argument android:name="movie" app:argType="com.sunil.arch.data.MovieEntity"/>
         </action>
-
     </fragment>
 
     <include app:graph="@navigation/nav_graph_detail_feature"/>

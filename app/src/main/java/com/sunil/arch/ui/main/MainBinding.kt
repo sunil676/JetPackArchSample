@@ -12,6 +12,7 @@ import com.sunil.arch.remote.repository.Resource
 object MainBinding {
 
     @BindingAdapter("app:items")
+    @JvmStatic
     fun setItems(recyclerView: RecyclerView, resource: Resource<List<MovieEntity>>?) {
         with(recyclerView.adapter as MainAdapter) {
             resource?.data?.let { updateData(it) }
@@ -19,11 +20,13 @@ object MainBinding {
     }
 
     @BindingAdapter("app:imageUrl")
+    @JvmStatic
     fun loadImageUrl(view: ImageView, url: String) {
-        Glide.with(view.context).load(url).apply(RequestOptions.circleCropTransform()).into(view)
+        Glide.with(view.context).load(url).into(view)
     }
 
     @BindingAdapter("app:showWhenEmptyList")
+    @JvmStatic
     fun showMessageErrorWhenEmptyList(view: View, resource: Resource<List<MovieEntity>>?) {
         if (resource != null) {
             view.visibility = if (resource.status == Resource.Status.ERROR

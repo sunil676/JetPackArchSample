@@ -21,6 +21,10 @@ class MainViewModel(val movieRepository: MovieRepository, val appDispatchers: Ap
     private val movies = MediatorLiveData<Resource<List<MovieEntity>>>()
     val movie: LiveData<Resource<List<MovieEntity>>> get() = movies
 
+    init {
+        this.getMovieList()
+    }
+
     fun getMovieList() {
         viewModelScope.launch(appDispatchers.main){
             movies.removeSource(movieListLiveData)

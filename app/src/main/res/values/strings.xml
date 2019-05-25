@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">JetPackArch</string>
     <string name="title_common">common</string>
     <string name="an_error_happened">An Error occoured, Please try again.</string>
+    <string name="image_url_text">https://image.tmdb.org/t/p/w500/%s</string>
 
 </resources>

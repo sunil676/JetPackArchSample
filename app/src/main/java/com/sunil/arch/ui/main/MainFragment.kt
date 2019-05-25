@@ -19,7 +19,7 @@ public class MainFragment : BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         binding.viewmodel = viewModel
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner= viewLifecycleOwner
         return binding.root
     }
 
@@ -36,11 +36,4 @@ public class MainFragment : BaseFragment() {
     override fun getViewModel(): BaseViewModel {
         return viewModel
     }
-
-    /* override fun onAttach(context: Context) {
-         super.onAttach(context)
-         val callback = OnBackPressedCallback { true }
-         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
-     }*/
-
 }
