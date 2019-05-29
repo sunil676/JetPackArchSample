@@ -3,5 +3,7 @@
     <string name="title_common">common</string>
     <string name="an_error_happened">An Error occoured, Please try again.</string>
     <string name="image_url_text">https://image.tmdb.org/t/p/w500/%s</string>
+    <string name="transition_avatar_dest" translatable="false">transition_avatar_dest</string>
+    <string name="transition_avatar" translatable="false">transition_avatar</string>
 
 </resources>

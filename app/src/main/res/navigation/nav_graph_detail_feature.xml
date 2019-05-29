@@ -8,14 +8,10 @@
     <fragment android:id="@+id/detailFragment"
               android:name="com.sunil.arch.ui.detail.DetailFragment"
               android:label="movie's detail">
-        <argument android:name="login" app:argType="string"/>
+        <argument android:name="movie" app:argType="com.sunil.arch.data.MovieEntity"/>
 
-        <action android:id="@+id/action_detailFragment_to_imageDetailFragment"
-                app:destination="@id/movieCoverFragment"
-                app:enterAnim="@anim/nav_default_pop_enter_anim"
-                app:exitAnim="@anim/nav_default_pop_exit_anim"
-                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action android:id="@+id/action_detailFragment_to_movieCoverFragment"
+                app:destination="@id/movieCoverFragment"/>
     </fragment>
 
 

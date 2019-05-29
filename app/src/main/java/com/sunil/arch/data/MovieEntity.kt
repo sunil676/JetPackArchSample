@@ -9,7 +9,7 @@ class MovieEntity() : Parcelable{
     var id: Int = 0
 
     @SerializedName("poster_path")
-    var posterPath: String? = null
+    var posterPath: String=""
 
     @SerializedName("adult")
     var isAdult: Boolean = false
