@@ -8,4 +8,4 @@ Used Library:
 3. Coroutines
 4. LifeCycle View Moel
 5. MVVM design pattern
-6 Data binding
+6. Data binding
