@@ -17,7 +17,8 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        testInstrumentationRunner "com.sunil.arch.common.FakeRunner"
     }
     buildTypes {
         release {
@@ -45,6 +46,7 @@ android {
 
     testOptions {
         animationsDisabled = true
+        unitTests.returnDefaultValues = true
     }
 }
 
@@ -53,9 +55,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     // navigation
     implementation "androidx.navigation:navigation-ui-ktx:2.0.0"
@@ -66,7 +65,7 @@ dependencies {
     implementation "org.koin:koin-android-viewmodel:1.0.2"
 
     // android ktx
-    implementation "androidx.appcompat:appcompat:1.1.0-alpha05"
+    implementation "androidx.appcompat:appcompat:1.1.0-beta01"
     implementation "androidx.core:core-ktx:1.2.0-alpha01"
 
     // lifecycle
@@ -75,19 +74,58 @@ dependencies {
 
     // coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
-
-    // data binding
-    //testImplementation "androidx.databinding:databinding-compiler:3.5.0-beta01"
-
     // retrofit
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
     implementation "com.google.code.gson:gson:2.8.5"
     implementation "com.squareup.retrofit2:retrofit:2.5.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
     implementation "com.squareup.okhttp3:logging-interceptor:3.12.1"
 
     // glide
     implementation "com.github.bumptech.glide:glide:4.9.0"
+
+    //paging
+    implementation "androidx.paging:paging-runtime:2.1.0"
+    implementation "androidx.paging:paging-rxjava2:2.1.0"
+
+    // ROOM
+    implementation "androidx.room:room-runtime:2.1.0"
+    implementation "androidx.room:room-ktx:2.1.0"
+    kapt "androidx.room:room-compiler:2.1.0" // For Kotlin use kapt instead of annotationProcessor
+
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+
+
+    /// Test library for unit test the project
+
+    // Core library
+    implementation 'androidx.test:core:1.2.0'
+    testImplementation "junit:junit:4.13-beta-3"
+
+    // AndroidJUnitRunner and JUnit Rules
+    implementation 'androidx.test:runner:1.2.0'
+    implementation 'androidx.test:rules:1.2.0'
+
+    // Assertions
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    //espresso
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+    // android arch
+    testImplementation 'androidx.arch.core:core-testing:2.0.1'
+    androidTestImplementation 'androidx.fragment:fragment-testing:1.1.0-beta01'
+    // koin
+    implementation 'org.koin:koin-test:1.0.2'
+    // mock
+    testImplementation 'com.squareup.okhttp:mockwebserver:2.7.5'
+    testImplementation 'io.mockk:mockk-android:1.9.2'
+    implementation 'io.mockk:mockk:1.9.2'
+    // coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.1.1'
+    testImplementation 'androidx.databinding:databinding-compiler:3.4.1'
+
+    testImplementation "org.mockito:mockito-core:2.8.47"
 
 
 }

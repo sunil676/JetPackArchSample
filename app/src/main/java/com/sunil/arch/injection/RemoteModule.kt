@@ -2,6 +2,7 @@ package com.sunil.arch.injection
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.sunil.arch.remote.api.ApiService
+import com.sunil.arch.remote.api.DataSource
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -30,5 +31,5 @@ fun createRemoteModule(baseUrl : String) =  module {
 
     factory{ get<Retrofit>().create(ApiService::class.java) }
 
-   // factory { ApiServiceImp(get()) }
+    factory { DataSource(get()) }
 }

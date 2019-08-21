@@ -8,5 +8,5 @@ import org.koin.dsl.module.module
 
 val repositoryModule = module {
     factory { AppDispatchers(Dispatchers.Main, Dispatchers.IO) }
-    factory { MovieRepositoryImp(get()) as MovieRepository }
+    factory { MovieRepositoryImp(get(), get ()) as MovieRepository }
 }

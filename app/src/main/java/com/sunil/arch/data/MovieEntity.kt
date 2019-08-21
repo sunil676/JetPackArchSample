@@ -2,9 +2,14 @@ package com.sunil.arch.data
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
+@Entity
 class MovieEntity() : Parcelable{
+    @PrimaryKey
     @SerializedName("id")
     var id: Int = 0
 
@@ -34,6 +39,8 @@ class MovieEntity() : Parcelable{
 
     @SerializedName("original_language")
     var originalLanguage: String? = null
+
+    var insertedTime: Date? = null
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readInt()

@@ -7,15 +7,15 @@ import androidx.lifecycle.viewModelScope
 import com.sunil.arch.R
 import com.sunil.arch.base.BaseViewModel
 import com.sunil.arch.data.MovieEntity
-import com.sunil.arch.remote.repository.MovieRepository
 import com.sunil.arch.remote.repository.AppDispatchers
 import com.sunil.arch.remote.repository.Resource
+import com.sunil.arch.remote.useCase.GetMovieUseCases
 import com.sunil.arch.ui.main.MainFragmentDirections
 import com.sunil.arch.utility.Event
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MainViewModel(val movieRepository: MovieRepository, val appDispatchers: AppDispatchers) : BaseViewModel() {
+class MainViewModel(val getMovieUseCases: GetMovieUseCases, val appDispatchers: AppDispatchers) : BaseViewModel() {
 
     private var movieListLiveData: LiveData<Resource<List<MovieEntity>>> = MutableLiveData()
     private val movies = MediatorLiveData<Resource<List<MovieEntity>>>()
@@ -26,14 +26,15 @@ class MainViewModel(val movieRepository: MovieRepository, val appDispatchers: Ap
     }
 
     fun getMovieList() {
-        viewModelScope.launch(appDispatchers.main){
+        viewModelScope.launch(appDispatchers.main) {
             movies.removeSource(movieListLiveData)
-            withContext(appDispatchers.io){
-                movieListLiveData = movieRepository.getMovieList()
+            withContext(appDispatchers.io) {
+                // direct fetch from network
+                movieListLiveData = getMovieUseCases()
             }
-            movies.addSource(movieListLiveData){
+            movies.addSource(movieListLiveData) {
                 movies.value = it
-                if (it.status == Resource.Status.ERROR){
+                if (it.status == Resource.Status.ERROR) {
                     snackBarErrorLiveData.value = Event(R.string.an_error_happened)
                 }
             }

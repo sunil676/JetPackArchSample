@@ -1,5 +1,5 @@
 package com.sunil.arch.data
 
-public class MoviesResponse{
+class MoviesResponse{
     var results: List<MovieEntity>? = null
 }
