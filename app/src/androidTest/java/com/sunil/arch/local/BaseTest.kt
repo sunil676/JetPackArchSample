@@ -26,7 +26,7 @@ abstract class BaseTest: KoinTest {
 
     @After
     open fun tearDown() {
-        StandAloneContext.stopKoin()
+      StandAloneContext.stopKoin()
     }
 
     // CONFIGURATION

@@ -1,5 +1,6 @@
 package com.sunil.arch.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
@@ -11,6 +12,8 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import androidx.test.rule.ActivityTestRule
+import com.sunil.arch.MainActivity
 import com.sunil.arch.R
 import com.sunil.arch.data.DataSet
 import com.sunil.arch.data.MovieEntity
@@ -22,17 +25,13 @@ import io.mockk.verify
 import org.hamcrest.CoreMatchers
 import org.junit.After
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.koin.test.KoinTest
-import androidx.test.rule.ActivityTestRule
-import com.sunil.arch.MainActivity
-import org.junit.Rule
-import android.content.Intent
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class DetailUIUnitTest : KoinTest {
+class DetailUIUnitTest {
 
     private lateinit var detailViewModel: DetailViewModel
 
